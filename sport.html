@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Спорт — Моё портфолио</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- ===== Навигация (текущая страница Sport) ===== -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">MyPortfolio</div>
+      <ul class="nav-links" id="navLinksSport">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="genshin.html">Genshin</a></li>
+        <li><a href="sport.html" class="active-link">Спорт</a></li>
+        <li><a href="photo.html">Фотография</a></li>
+        <li><a href="index.html#webdev">Веб-разработка</a></li>
+      </ul>
+      <div class="hamburger" id="hamburgerSport">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Спорт ===== -->
+  <section id="sportPage" class="section sport">
+    <h2 class="section-title">Профессиональный спорт</h2>
+    <div class="cards-container">
+      <div class="card">
+        <img src="images/sport1.jpg" alt="Спорт 1" />
+        <h3>Триатлон</h3>
+        <p>Региональный участник, многократный призёр среди любителей.</p>
+      </div>
+      <div class="card">
+        <img src="images/sport2.jpg" alt="Спорт 2" />
+        <h3>Фитнес и тренировки</h3>
+        <p>Провожу персональные и онлайн-тренировки, сертифицированный тренер.</p>
+      </div>
+      <!-- Можно добавить новые карточки -->
+    </div>
+  </section>
+
+  <!-- ===== Футер ===== -->
+  <footer class="footer">
+    <p>© 2025 Дмитрий. Все права защищены.</p>
+  </footer>
+
+  <!-- ===== Scroll to Top ===== -->
+  <button id="scrollTopBtnSport" title="Наверх">↑</button>
+
+  <!-- ===== Скрипт ===== -->
+  <script src="script.js"></script>
+
+  <!-- ===== Музыка (общая для сайта) ===== -->
+  <div id="ytPlayer"></div>
+  <div class="music-button" id="musicBtnSport" title="Вкл/Выкл музыку">
+    <img src="https://cdn-icons-png.flaticon.com/512/109/109663.png" alt="Music Icon" />
+  </div>
+  <script>
+    // При загрузке страницы всегда проверяем, что плеер уже инициализирован
+    document.addEventListener('DOMContentLoaded', () => {
+      const musicBtn = document.getElementById('musicBtnSport');
+      musicBtn.addEventListener('click', () => {
+        if (!window.isPlaying) {
+          window.player.playVideo();
+          window.isPlaying = true;
+          musicBtn.style.backgroundColor = '#00FFE7';
+          musicBtn.style.boxShadow = '0 0 14px #00FFE7';
+        } else {
+          window.player.pauseVideo();
+          window.isPlaying = false;
+          musicBtn.style.backgroundColor = 'rgba(0,0,0,0.5)';
+          musicBtn.style.boxShadow = '0 0 10px #00FFE7';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
