@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Моё  портфолио</title>
+  <title>Моё портфолио</title>
   <link rel="stylesheet" href="styles.css" />
-  <!-- Можно подключить Poppins через Google Fonts -->
+  <!-- Google Fonts: Poppins -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
@@ -20,10 +20,10 @@
         <li><a href="#hero">Главная</a></li>
         <li><a href="#about">О себе</a></li>
         <li><a href="#webdev">Веб-разработка</a></li>
-        <li><a href="#genshin">Genshin IMPACT</a></li>
-        <li><a href="#sport">Спорт</a></li>
+        <li><a href="genshin.html">Genshin IMPACT</a></li>
+        <li><a href="sport.html">Спорт</a></li>
         <li><a href="#moto">Мотоцикл</a></li>
-        <li><a href="#photo">Фотография</a></li>
+        <li><a href="photo.html">Фотография</a></li>
         <li><a href="#contact">Контакты</a></li>
       </ul>
       <div class="hamburger" id="hamburger">
@@ -38,8 +38,8 @@
   <section id="hero" class="hero">
     <div class="hero-content">
       <img src="ava.jpg" alt="Мой аватар" class="avatar" />
-      <h1>ХАлоу, я Бургер или же Дмитрий</h1>
-      <p>Я создаю всё что хочу и интересует.</p>
+      <h1>Привет, я Дмитрий</h1>
+      <p>Фронтенд-разработчик, спортсмен, мотоциклист, геймер и фотограф.</p>
       <a href="#about" class="btn btn-primary">Узнать больше</a>
     </div>
   </section>
@@ -50,13 +50,23 @@
     <div class="about-content">
       <div class="about-text">
         <p>
-          Меня зовут Дмитрий, я фронтенд-разработчик с опытом работы в создании одностраничных и многостраничных сайтов.
-          В свободное время играю в <strong>Игры</strong>, профессионально занимаюсь спортом (Триатлон)
-          и обожаю кататься на мотоцикле. Фотография — ещё одна моя страсть: я люблю поймать момент и запечатлеть эмоцию.
+          Меня зовут <strong>Дмитрий</strong>. Я занимаюсь фронтенд-разработкой более двух лет — верстаю
+          адаптивные сайты, создаю SPA на React. Пишу чистый HTML/CSS/JavaScript, и моя цель — превращать
+          самые смелые идеи в красивый, удобный интерфейс. 
         </p>
         <p>
-          На этом сайте вы можете ознакомиться с моими работами: от веб-проектов до снимков и видеороликов.
-          Если у вас есть идея для совместного проекта или просто хотите поздороваться,закать проект, переходите в раздел <strong>«Контакты»</strong>.
+          Вне работы я увлекаюсь:
+          <ul>
+            <li>🎮 <strong>Genshin Impact</strong> — мой Adventure Rank сейчас <strong>57</strong>. Любимые
+              персонажи: Ху Тао, Сяо, Фишль, Райден...</li>
+            <li>🏊‍♂️ <strong>Проф-спорт (триатлон)</strong> — участник городских и региональных соревнований;</li>
+            <li>🏍️ <strong>Мотоцикл</strong> — обожаю скорость и свободу на двух колёсах: мой байк — <em>Kayo K1</em>;</li>
+            <li>📷 <strong>Фотография</strong> — ловлю эмоции и свет, люблю снимать городские пейзажи и портреты.</li>
+          </ul>
+        </p>
+        <p>
+          Здесь вы найдёте мои работы: от веб-проектов до снимков и видео. Если хотите обсудить сотрудничество
+          или просто поздороваться — переходите в раздел <strong>«Контакты»</strong>.
         </p>
       </div>
       <div class="about-image">
@@ -72,76 +82,16 @@
       <div class="card">
         <img src="images/web-dev-1.png" alt="Проект 1" />
         <h3>Адаптивный Landing Page</h3>
-        <p>HTML5, CSS3, JavaScript. Простая анимация при прокрутке, модальные окна и слайдер.</p>
+        <p>HTML5, CSS3, JavaScript. Анимация на скролле, модальные окна, слайдер.</p>
         <a href="#" class="btn btn-secondary">Посмотреть →</a>
       </div>
       <div class="card">
         <img src="images/web-dev-2.png" alt="Проект 2" />
         <h3>SPA на React</h3>
-        <p>Одностраничное приложение с чем то умным.</p>
+        <p>Одностраничное приложение с React, TailwindCSS и интеграцией с внешним API.</p>
         <a href="#" class="btn btn-secondary">Посмотреть →</a>
       </div>
-      <!-- Вы можете дублировать карточки и менять содержимое -->
-    </div>
-  </section>
-
-  <!-- ===== Genshin Impact ===== -->
-  <section id="genshin" class="section genshin">
-    <h2 class="section-title">Genshin Impact</h2>
-    <div class="genshin-content">
-      <div class="genshin-profile">
-        <img src="images/genshin-banner.jpg" alt="Genshin IMPACT" />
-        <div class="profile-info">
-          <h3>Genshin ID: <span>733958866</span></h3>
-          <p>Уровень приключения: <strong>57</strong></p>
-          <p>Сервер: <strong>Europe</strong></p>
-        </div>
-      </div>
-      <h3 class="sub-title">Мои любимые персонажи</h3>
-      <div class="chars-container">
-        <div class="char-card">
-          <img src="images/genshin-char1.png" alt="Персонаж 1" />
-          <p>ХУ тао</p>
-        </div>
-        <div class="char-card">
-          <img src="images/genshin-char2.png" alt="Персонаж 2" />
-          <p>Сяо</p>
-        </div>
-         <div class="char-card">
-          <img src="images/genshin-char2.png" alt="Персонаж 2" />
-          <p>Лань</p>
-        </div>
-         <div class="char-card">
-          <img src="images/genshin-char2.png" alt="Персонаж 2" />
-          <p>Райден</p>
-        </div>
-         <div class="char-card">
-          <img src="images/genshin-char2.png" alt="Персонаж 2" />
-          <p>фура</p>
-        </div>
-         <div class="char-card">
-          <img src="images/genshin-char2.png" alt="Персонаж 2" />
-          <p>Арли</p>
-        </div>
-        <!-- Добавьте ещё персонажей аналогично -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Профессиональный спорт ===== -->
-  <section id="sport" class="section sport">
-    <h2 class="section-title">Профессиональный спорт</h2>
-    <div class="cards-container">
-      <div class="card">
-        <img src="images/sport1.jpg" alt="Спорт 1" />
-        <h3>триатлон</h3>
-        <p>Участник городских соревнований.</p>
-      </div>
-      <!-- ===== <div class="card">
-        <img src="images/sport2.jpg" alt="Спорт 2" /
-        <h3>Фитнес-тренировки</h3>
-        <p>Персональный тренер с сертификацией. Провожу онлайн-тренировки.</p>
-      </div>>-->
+      <!-- Добавляйте новые карточки при необходимости -->
     </div>
   </section>
 
@@ -153,51 +103,92 @@
       <img src="images/moto2.jpg" alt="Мото 2" />
     </div>
     <p class="moto-text">
-      Люблю скорость и свободу на двух колёсах. 
-      Любимый байк сейчас имея— <strong>Kayo k1</strong>.
+      Свобода на двух колёсах — это особое чувство. Сейчас мой выбор: <strong>Kayo K1</strong>. Люблю выезжать
+      на трассу ранним утром и наблюдать, как просыпается город.
     </p>
-  </section>
-
-  <!-- ===== Фотография ===== -->
-  <section id="photo" class="section photo">
-    <h2 class="section-title">Фотография</h2>
-    <div class="photo-gallery">
-      <div class="photo-card">
-        <img src="images/photo1.jpg" alt="Фото 1" />
-      </div>
-      <div class="photo-card">
-        <img src="images/photo2.jpg" alt="Фото 2" />
-      </div>
-      <div class="photo-card">
-        <img src="images/photo3.jpg" alt="Фото 3" />
-      </div>
-      <div class="photo-card">
-        <img src="images/photo4.jpg" alt="Фото 4" />
-      </div>
-    </div>
   </section>
 
   <!-- ===== Контакты ===== -->
   <section id="contact" class="section contact">
     <h2 class="section-title">Контакты</h2>
     <div class="contact-content">
-      <p>Если у вас есть предложение по проекту или просто хотите поздороваться, напишите мне:</p>
+      <p>Готов к новым проектам и идеям! Пишите мне:</p>
       <ul class="contact-list">
         <li>💬 Telegram: <a href="https://t.me/aimovl" target="_blank">@aimovl</a></li>
         <li>🐙 GitHub: <a href="https://github.com/228burger228" target="_blank">228burger228</a></li>
+        <li>📷 Instagram: <a href="https://instagram.com/yourusername" target="_blank">@yourusername</a></li>
+        <li>✉️ Email: <a href="mailto:ivan.petrov@example.com">ivan.petrov@example.com</a></li>
       </ul>
     </div>
   </section>
 
   <!-- ===== Футер ===== -->
   <footer class="footer">
-    <p>© Все права защищены.</p>
+    <p>© 2025 Дмитрий. Все права защищены.</p>
   </footer>
 
-  <!-- ===== Scroll to Top ===== -->
+  <!-- ===== Кнопка «Наверх» ===== -->
   <button id="scrollTopBtn" title="Наверх">↑</button>
 
   <!-- ===== Скрипт ===== -->
   <script src="script.js"></script>
+
+  <!-- ===== YouTube IFrame API для музыки ===== -->
+  <div id="ytPlayer"></div>
+  <div class="music-button" id="musicBtn" title="Вкл/Выкл музыку">
+    <img src="https://cdn-icons-png.flaticon.com/512/109/109663.png" alt="Music Icon" />
+  </div>
+  <script>
+    // Загрузка YouTube API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+
+    let player;
+    let isPlaying = false;
+    const MUSIC_ID = 'JC3Dj5o_ucw'; // ID трека из Genshin Impact
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('ytPlayer', {
+        height: '0',
+        width: '0',
+        videoId: MUSIC_ID,
+        playerVars: {
+          autoplay: 0,
+          controls: 0,
+          loop: 1,
+          playlist: MUSIC_ID,
+          modestbranding: 1,
+          rel: 0,
+          iv_load_policy: 3,
+          playsinline: 1
+        },
+        events: {
+          'onReady': () => {},
+          'onStateChange': e => {
+            if (e.data === YT.PlayerState.ENDED) player.playVideo();
+          },
+          'onError': e => console.error('Ошибка плеера:', e.data)
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const musicBtn = document.getElementById('musicBtn');
+      musicBtn.addEventListener('click', () => {
+        if (!isPlaying) {
+          player.playVideo();
+          isPlaying = true;
+          musicBtn.style.backgroundColor = '#00FFE7';
+          musicBtn.style.boxShadow = '0 0 14px #00FFE7';
+        } else {
+          player.pauseVideo();
+          isPlaying = false;
+          musicBtn.style.backgroundColor = 'rgba(0,0,0,0.5)';
+          musicBtn.style.boxShadow = '0 0 10px #00FFE7';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
