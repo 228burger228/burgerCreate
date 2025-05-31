@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genshin IMPACT — Моё портфолио</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- ===== Навигация (текущая страница Genshin) ===== -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">MyPortfolio</div>
+      <ul class="nav-links" id="navLinksGenshin">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="genshin.html" class="active-link">Genshin</a></li>
+        <li><a href="sport.html">Спорт</a></li>
+        <li><a href="photo.html">Фотография</a></li>
+        <li><a href="index.html#moto">Мотоцикл</a></li>
+      </ul>
+      <div class="hamburger" id="hamburgerGenshin">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Genshin Impact ===== -->
+  <section id="genshinPage" class="section genshin">
+    <h2 class="section-title">Genshin Impact</h2>
+    <div class="genshin-content">
+      <div class="genshin-profile">
+        <img src="images/genshin-banner.jpg" alt="Genshin IMPACT" />
+        <div class="profile-info">
+          <h3>Genshin ID: <span>733958866</span></h3>
+          <p>Уровень приключения: <strong>57</strong></p>
+          <p>Сервер: <strong>Europe</strong></p>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Мои любимые персонажи</h3>
+      <div class="chars-container">
+        <div class="char-card">
+          <img src="images/genshin-char1.png" alt="Ху Тао" />
+          <p>Ху Тао</p>
+        </div>
+        <div class="char-card">
+          <img src="images/genshin-char2.png" alt="Сяо" />
+          <p>Сяо</p>
+        </div>
+        <div class="char-card">
+          <img src="images/genshin-char3.png" alt="Лань" />
+          <p>Лань</p>
+        </div>
+        <div class="char-card">
+          <img src="images/genshin-char4.png" alt="Райден" />
+          <p>Райден</p>
+        </div>
+        <div class="char-card">
+          <img src="images/genshin-char5.png" alt="Фишль" />
+          <p>Фишль</p>
+        </div>
+        <div class="char-card">
+          <img src="images/genshin-char6.png" alt="Арли" />
+          <p>Арли</p>
+        </div>
+        <!-- Добавляйте новых персонажей по аналогии -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Футер ===== -->
+  <footer class="footer">
+    <p>© 2025 Дмитрий. Все права защищены.</p>
+  </footer>
+
+  <!-- ===== Scroll to Top ===== -->
+  <button id="scrollTopBtnGenshin" title="Наверх">↑</button>
+
+  <!-- ===== Скрипт ===== -->
+  <script src="script.js"></script>
+
+  <!-- ===== Музыка ===== -->
+  <div id="ytPlayer"></div>
+  <div class="music-button" id="musicBtnGenshin" title="Вкл/Выкл музыку">
+    <img src="https://cdn-icons-png.flaticon.com/512/109/109663.png" alt="Music Icon" />
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const musicBtn = document.getElementById('musicBtnGenshin');
+      musicBtn.addEventListener('click', () => {
+        if (!window.isPlaying) {
+          window.player.playVideo();
+          window.isPlaying = true;
+          musicBtn.style.backgroundColor = '#00FFE7';
+          musicBtn.style.boxShadow = '0 0 14px #00FFE7';
+        } else {
+          window.player.pauseVideo();
+          window.isPlaying = false;
+          musicBtn.style.backgroundColor = 'rgba(0,0,0,0.5)';
+          musicBtn.style.boxShadow = '0 0 10px #00FFE7';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
