@@ -11,12 +11,11 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #111; /* темный фон (фолбек, если не грузится градиент) */
+  background: #111;
   color: #EEE;
   line-height: 1.6;
 }
 
-/* Градиентный фон для всего сайта */
 body::before {
   content: '';
   position: fixed;
@@ -26,20 +25,17 @@ body::before {
   z-index: -2;
 }
 
-/* Ссылка: убираем подчёркивание */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* Стандартные отступы для секций */
 .section {
   padding: 80px 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Заголовки секций */
 .section-title {
   font-size: 2.5rem;
   text-align: center;
@@ -48,7 +44,6 @@ a {
   color: #FFF;
 }
 
-/* Линия-акцент под заголовками */
 .section-title::after {
   content: '';
   width: 80px;
@@ -104,6 +99,10 @@ header {
   transition: color 0.3s ease;
 }
 
+.nav-links li a.active-link {
+  color: #00FFE7;
+}
+
 .nav-links li a::after {
   content: '';
   position: absolute;
@@ -118,19 +117,17 @@ header {
 .nav-links li a:hover {
   color: #00FFE7;
 }
-
 .nav-links li a:hover::after {
   width: 100%;
 }
 
-/* Гамбургер для мобильных */
+/* Гамбургер */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
   gap: 6px;
 }
-
 .hamburger span {
   display: block;
   width: 28px;
@@ -139,7 +136,6 @@ header {
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
 .hamburger.active span:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
 }
@@ -150,7 +146,7 @@ header {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* Мобильное меню (скрыто по умолчанию) */
+/* Мобильное меню */
 @media (max-width: 992px) {
   .nav-links {
     position: fixed;
@@ -181,14 +177,12 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 80px; /* отступ под фиксированный header */
+  padding-top: 80px; 
 }
-
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
 }
-
 .avatar {
   width: 160px;
   height: 160px;
@@ -200,17 +194,14 @@ header {
   display: block;
   transition: transform 0.3s ease;
 }
-
 .avatar:hover {
   transform: scale(1.05);
 }
-
 .hero h1 {
   font-size: 3rem;
   color: #FFF;
   margin-bottom: 20px;
 }
-
 .hero p {
   font-size: 1.2rem;
   color: #CCC;
@@ -219,7 +210,6 @@ header {
   margin-left: auto;
   margin-right: auto;
 }
-
 .btn {
   display: inline-block;
   padding: 12px 28px;
@@ -229,13 +219,11 @@ header {
   transition: all 0.3s ease;
   cursor: pointer;
 }
-
 .btn-primary {
   background: #00FFE7;
   color: #111;
   border: 2px solid transparent;
 }
-
 .btn-primary:hover {
   background: transparent;
   border: 2px solid #00FFE7;
@@ -250,36 +238,30 @@ header {
   gap: 40px;
   flex-wrap: wrap;
 }
-
 .about-text {
   flex: 1 1 400px;
   font-size: 1rem;
   color: #DDD;
 }
-
 .about-image {
   flex: 1 1 300px;
 }
-
 .about-image img {
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
-
 .about-image img:hover {
   transform: scale(1.02);
 }
 
 /* ===== Раздел «Веб-разработка» ===== */
-.webdev .cards-container,
-.sport .cards-container {
+.webdev .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 30px;
 }
-
 .card {
   background: #1F2126;
   border-radius: 12px;
@@ -289,25 +271,21 @@ header {
   display: flex;
   flex-direction: column;
 }
-
 .card img {
   width: 100%;
   height: 160px;
   object-fit: cover;
 }
-
 .card h3 {
   font-size: 1.3rem;
   color: #FFF;
   margin: 16px;
 }
-
 .card p {
   color: #CCC;
   margin: 0 16px 16px;
   flex-grow: 1;
 }
-
 .card .btn-secondary {
   margin: 16px;
   background: #00FFE7;
@@ -319,92 +297,13 @@ header {
   font-weight: 500;
   transition: background 0.3s ease;
 }
-
 .card .btn-secondary:hover {
   background: #00C7AA;
 }
-
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
-
-/* ===== Раздел «Genshin Impact» ===== */
-.genshin-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-}
-
-.genshin-profile {
-  background: #1F2126;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  max-width: 500px;
-  width: 100%;
-  text-align: center;
-}
-
-.genshin-profile img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.profile-info {
-  padding: 20px;
-  color: #DDD;
-}
-
-.profile-info h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: #FFF;
-}
-
-.profile-info p {
-  font-size: 1rem;
-  margin-bottom: 6px;
-}
-
-/* Галерея персонажей */
-.chars-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 20px;
-  width: 100%;
-  max-width: 900px;
-}
-
-.char-card {
-  background: #1F2126;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.char-card img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-}
-
-.char-card p {
-  padding: 12px 0;
-  color: #FFF;
-}
-
-.char-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* ===== Раздел «Спорт» ===== */
-/* Использует те же .cards-container и .card, что и webdev */
 
 /* ===== Раздел «Мотоцикл» ===== */
 .moto-gallery {
@@ -414,7 +313,6 @@ header {
   justify-content: center;
   margin-bottom: 20px;
 }
-
 .moto-gallery img {
   width: 300px;
   height: 200px;
@@ -423,11 +321,9 @@ header {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
-
 .moto-gallery img:hover {
   transform: scale(1.05);
 }
-
 .moto-text {
   max-width: 800px;
   margin: 0 auto;
@@ -436,28 +332,91 @@ header {
   text-align: center;
 }
 
+/* ===== Раздел «Профессиональный спорт» ===== */
+/* Использует .cards-container и .card из веб-разработки */
+
 /* ===== Раздел «Фотография» ===== */
 .photo-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
 }
-
 .photo-card {
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-
 .photo-card img {
   width: 100%;
   height: 140px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
-
 .photo-card img:hover {
   transform: scale(1.05);
+}
+
+/* ===== Раздел «Genshin Impact» ===== */
+.genshin-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.genshin-profile {
+  background: #1F2126;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+.genshin-profile img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.profile-info {
+  padding: 20px;
+  color: #DDD;
+}
+.profile-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #FFF;
+}
+.profile-info p {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+.chars-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+}
+.char-card {
+  background: #1F2126;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.char-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+.char-card p {
+  padding: 12px 0;
+  color: #FFF;
+}
+.char-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== Раздел «Контакты» ===== */
@@ -467,27 +426,22 @@ header {
   margin: 0 auto;
   color: #CCC;
 }
-
 .contact-content p {
   margin-bottom: 20px;
   font-size: 1rem;
 }
-
 .contact-list {
   list-style: none;
   padding: 0;
 }
-
 .contact-list li {
   margin-bottom: 12px;
   font-size: 1.1rem;
 }
-
 .contact-list a {
   color: #00FFE7;
   transition: color 0.3s ease;
 }
-
 .contact-list a:hover {
   color: #00C7AA;
 }
@@ -498,14 +452,16 @@ header {
   padding: 20px 0;
   text-align: center;
 }
-
 .footer p {
   color: #666;
   font-size: 0.9rem;
 }
 
 /* ===== Кнопка «Наверх» ===== */
-#scrollTopBtn {
+#scrollTopBtn,
+#scrollTopBtnSport,
+#scrollTopBtnPhoto,
+#scrollTopBtnGenshin {
   display: none;
   position: fixed;
   bottom: 40px;
@@ -523,10 +479,45 @@ header {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
-#scrollTopBtn:hover {
+#scrollTopBtn:hover,
+#scrollTopBtnSport:hover,
+#scrollTopBtnPhoto:hover,
+#scrollTopBtnGenshin:hover {
   background-color: #00C7AA;
   transform: scale(1.1);
+}
+
+/* ===== Музыкальная кнопка ===== */
+.music-button {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00FFE7;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  z-index: 200;
+}
+.music-button:hover {
+  transform: scale(1.1);
+}
+.music-button img {
+  width: 28px;
+  height: 28px;
+  filter: invert(100%);
+}
+
+/* ===== YouTube Player ===== */
+#ytPlayer {
+  width: 0;
+  height: 0;
+  visibility: hidden;
 }
 
 /* ===== Адаптивность ===== */
