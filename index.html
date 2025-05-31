@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Моё крутое портфолио</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Можно подключить Poppins через Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- ===== Навигация ===== -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">MyPortfolio</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Главная</a></li>
+        <li><a href="#about">О себе</a></li>
+        <li><a href="#webdev">Веб-разработка</a></li>
+        <li><a href="#genshin">Genshin IMPACT</a></li>
+        <li><a href="#sport">Спорт</a></li>
+        <li><a href="#moto">Мотоцикл</a></li>
+        <li><a href="#photo">Фотография</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Hero Section ===== -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <img src="images/avatar.jpg" alt="Мой аватар" class="avatar" />
+      <h1>Привет, я Иван Петров</h1>
+      <p>Я создаю современные сайты, играю в Genshin Impact, занимаюсь проф-спортом и фотографией.</p>
+      <a href="#about" class="btn btn-primary">Узнать больше</a>
+    </div>
+  </section>
+
+  <!-- ===== О себе ===== -->
+  <section id="about" class="section about">
+    <h2 class="section-title">Обо мне</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          Меня зовут Иван, я фронтенд-разработчик с опытом работы в создании одностраничных и многостраничных сайтов.
+          В свободное время играю в <strong>Genshin Impact</strong>, профессионально занимаюсь спортом (фитнес, легкая атлетика)
+          и обожаю кататься на мотоцикле. Фотография — ещё одна моя страсть: я люблю поймать момент и запечатлеть эмоцию.
+        </p>
+        <p>
+          На этом сайте вы можете ознакомиться с моими работами: от веб-проектов до снимков и видеороликов.
+          Если у вас есть идея для совместного проекта или просто хотите поздороваться, переходите в раздел <strong>«Контакты»</strong>.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="images/placeholder.png" alt="Обо мне — изображение" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Веб-разработка ===== -->
+  <section id="webdev" class="section webdev">
+    <h2 class="section-title">Веб-разработка</h2>
+    <div class="cards-container">
+      <div class="card">
+        <img src="images/web-dev-1.png" alt="Проект 1" />
+        <h3>Адаптивный Landing Page</h3>
+        <p>HTML5, CSS3, JavaScript. Простая анимация при прокрутке, модальные окна и слайдер.</p>
+        <a href="#" class="btn btn-secondary">Посмотреть →</a>
+      </div>
+      <div class="card">
+        <img src="images/web-dev-2.png" alt="Проект 2" />
+        <h3>SPA на React</h3>
+        <p>Одностраничное приложение с React + TailwindCSS + Axios. Интеграция с публичным API.</p>
+        <a href="#" class="btn btn-secondary">Посмотреть →</a>
+      </div>
+      <!-- Вы можете дублировать карточки и менять содержимое -->
+    </div>
+  </section>
+
+  <!-- ===== Genshin Impact ===== -->
+  <section id="genshin" class="section genshin">
+    <h2 class="section-title">Genshin Impact</h2>
+    <div class="genshin-content">
+      <div class="genshin-profile">
+        <img src="images/genshin-banner.jpg" alt="Genshin IMPACT" />
+        <div class="profile-info">
+          <h3>Genshin ID: <span>123456789</span></h3>
+          <p>Уровень приключения: <strong>45</strong></p>
+          <p>Сервер: <strong>Europe</strong></p>
+        </div>
+      </div>
+      <h3 class="sub-title">Мои любимые персонажи</h3>
+      <div class="chars-container">
+        <div class="char-card">
+          <img src="images/genshin-char1.png" alt="Персонаж 1" />
+          <p>Венти</p>
+        </div>
+        <div class="char-card">
+          <img src="images/genshin-char2.png" alt="Персонаж 2" />
+          <p>Эола</p>
+        </div>
+        <!-- Добавьте ещё персонажей аналогично -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Профессиональный спорт ===== -->
+  <section id="sport" class="section sport">
+    <h2 class="section-title">Профессиональный спорт</h2>
+    <div class="cards-container">
+      <div class="card">
+        <img src="images/sport1.jpg" alt="Спорт 1" />
+        <h3>Легкая атлетика</h3>
+        <p>Участник региональных соревнований. Многократный призёр.</p>
+      </div>
+      <div class="card">
+        <img src="images/sport2.jpg" alt="Спорт 2" />
+        <h3>Фитнес-тренировки</h3>
+        <p>Персональный тренер с сертификацией. Провожу онлайн-тренировки.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Мотоцикл ===== -->
+  <section id="moto" class="section moto">
+    <h2 class="section-title">Мотоцикл</h2>
+    <div class="moto-gallery">
+      <img src="images/moto1.jpg" alt="Мото 1" />
+      <img src="images/moto2.jpg" alt="Мото 2" />
+    </div>
+    <p class="moto-text">
+      Люблю скорость и свободу на двух колёсах. Этот сайт разрабатывался, когда я возвращался с ночных мотопрогулок.
+      Любимый байк — <strong>Yamaha MT-07</strong>.
+    </p>
+  </section>
+
+  <!-- ===== Фотография ===== -->
+  <section id="photo" class="section photo">
+    <h2 class="section-title">Фотография</h2>
+    <div class="photo-gallery">
+      <div class="photo-card">
+        <img src="images/photo1.jpg" alt="Фото 1" />
+      </div>
+      <div class="photo-card">
+        <img src="images/photo2.jpg" alt="Фото 2" />
+      </div>
+      <div class="photo-card">
+        <img src="images/photo3.jpg" alt="Фото 3" />
+      </div>
+      <div class="photo-card">
+        <img src="images/photo4.jpg" alt="Фото 4" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Контакты ===== -->
+  <section id="contact" class="section contact">
+    <h2 class="section-title">Контакты</h2>
+    <div class="contact-content">
+      <p>Если у вас есть предложение по проекту или просто хотите поздороваться, напишите мне:</p>
+      <ul class="contact-list">
+        <li>📧 Email: <a href="mailto:ivan.petrov@example.com">ivan.petrov@example.com</a></li>
+        <li>💬 Telegram: <a href="https://t.me/aimovl" target="_blank">@aimovl</a></li>
+        <li>🐙 GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></li>
+        <li>📷 Instagram: <a href="https://instagram.com/yourusername" target="_blank">@yourusername</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Футер ===== -->
+  <footer class="footer">
+    <p>© 2025 Иван Петров. Все права защищены.</p>
+  </footer>
+
+  <!-- ===== Scroll to Top ===== -->
+  <button id="scrollTopBtn" title="Наверх">↑</button>
+
+  <!-- ===== Скрипт ===== -->
+  <script src="script.js"></script>
+</body>
+</html>
