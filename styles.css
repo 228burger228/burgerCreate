@@ -1,0 +1,547 @@
+/* ========== Общие настройки ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #111; /* темный фон (фолбек, если не грузится градиент) */
+  color: #EEE;
+  line-height: 1.6;
+}
+
+/* Градиентный фон для всего сайта */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #2A2D34 0%, #1F2126 50%, #101216 100%);
+  z-index: -2;
+}
+
+/* Ссылка: убираем подчёркивание */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Стандартные отступы для секций */
+.section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Заголовки секций */
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  color: #FFF;
+}
+
+/* Линия-акцент под заголовками */
+.section-title::after {
+  content: '';
+  width: 80px;
+  height: 3px;
+  background: #00FFE7;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* ===== Навигация ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #00FFE7;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 30px;
+}
+
+.nav-links li a {
+  font-size: 1rem;
+  color: #EEE;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00FFE7;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #00FFE7;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Гамбургер для мобильных */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #EEE;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Мобильное меню (скрыто по умолчанию) */
+@media (max-width: 992px) {
+  .nav-links {
+    position: fixed;
+    top: 0; right: -100%;
+    height: 100vh;
+    width: 240px;
+    flex-direction: column;
+    background: rgba(20, 20, 20, 0.97);
+    padding-top: 100px;
+    transition: right 0.3s ease;
+  }
+  .nav-links.open {
+    right: 0;
+  }
+  .nav-links li {
+    margin: 20px 0;
+    text-align: center;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* ===== Hero ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 80px; /* отступ под фиксированный header */
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid #00FFE7;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(0, 255, 231, 0.6);
+  margin: 0 auto 20px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #FFF;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #CCC;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #00FFE7;
+  color: #111;
+  border: 2px solid transparent;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  border: 2px solid #00FFE7;
+  color: #00FFE7;
+}
+
+/* ===== Раздел «О себе» ===== */
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1 1 400px;
+  font-size: 1rem;
+  color: #DDD;
+}
+
+.about-image {
+  flex: 1 1 300px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.02);
+}
+
+/* ===== Раздел «Веб-разработка» ===== */
+.webdev .cards-container,
+.sport .cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #1F2126;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  color: #FFF;
+  margin: 16px;
+}
+
+.card p {
+  color: #CCC;
+  margin: 0 16px 16px;
+  flex-grow: 1;
+}
+
+.card .btn-secondary {
+  margin: 16px;
+  background: #00FFE7;
+  color: #111;
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.card .btn-secondary:hover {
+  background: #00C7AA;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Раздел «Genshin Impact» ===== */
+.genshin-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.genshin-profile {
+  background: #1F2126;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.genshin-profile img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.profile-info {
+  padding: 20px;
+  color: #DDD;
+}
+
+.profile-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #FFF;
+}
+
+.profile-info p {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+/* Галерея персонажей */
+.chars-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.char-card {
+  background: #1F2126;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.char-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.char-card p {
+  padding: 12px 0;
+  color: #FFF;
+}
+
+.char-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Раздел «Спорт» ===== */
+/* Использует те же .cards-container и .card, что и webdev */
+
+/* ===== Раздел «Мотоцикл» ===== */
+.moto-gallery {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.moto-gallery img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.moto-gallery img:hover {
+  transform: scale(1.05);
+}
+
+.moto-text {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #CCC;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* ===== Раздел «Фотография» ===== */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.photo-card {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photo-card img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Раздел «Контакты» ===== */
+.contact-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #CCC;
+}
+
+.contact-content p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-list li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.contact-list a {
+  color: #00FFE7;
+  transition: color 0.3s ease;
+}
+
+.contact-list a:hover {
+  color: #00C7AA;
+}
+
+/* ===== Футер ===== */
+.footer {
+  background: #111;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* ===== Кнопка «Наверх» ===== */
+#scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  z-index: 100;
+  font-size: 24px;
+  background-color: #00FFE7;
+  color: #111;
+  border: none;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+  background-color: #00C7AA;
+  transform: scale(1.1);
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+  }
+  .moto-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
