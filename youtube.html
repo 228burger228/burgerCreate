@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube — Моё портфолио</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- ===== Навигация (текущая страница YouTube) ===== -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">MyPortfolio</div>
+      <ul class="nav-links" id="navLinksYouTube">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="genshin.html">Genshin</a></li>
+        <li><a href="sport.html">Спорт</a></li>
+        <li><a href="photo.html">Фотография</a></li>
+        <li><a href="youtube.html" class="active-link">YouTube</a></li>
+        <li><a href="index.html#webdev">Веб-разработка</a></li>
+      </ul>
+      <div class="hamburger" id="hamburgerYouTube">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Страница YouTube ===== -->
+  <section id="youtubePage" class="section youtube">
+    <h2 class="section-title">Мой YouTube-канал</h2>
+    <div class="youtube-content" style="max-width: 800px; margin: 0 auto; text-align: center; color: #DDD;">
+      <p>
+        На моём канале вы найдёте видео по веб-разработке, записи соревнований по триатлону, а также кадры с
+        мотопробегов и фотосессий. Подписывайтесь, чтобы не пропустить новые выпуски!
+      </p>
+
+      <!-- Встраивание последнего видео или плейлиста (пример) -->
+      <div style="margin: 30px 0;">
+        <iframe
+          width="100%"
+          height="450"
+          src="https://www.youtube.com/embed/videoseries?list=PL_ВАШ_ПЛЕЙЛИСТ_ID"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <p>
+        Если хотите перейти напрямую на канал, нажмите кнопку:
+      </p>
+      <a href="https://www.youtube.com/ВашКанал" target="_blank" class="btn btn-secondary">Перейти на канал →</a>
+    </div>
+  </section>
+
+  <!-- ===== Футер ===== -->
+  <footer class="footer">
+    <p>© 2025 Дмитрий. Все права защищены.</p>
+  </footer>
+
+  <!-- ===== Кнопка «Наверх» ===== -->
+  <button id="scrollTopBtnYouTube" title="Наверх">↑</button>
+
+  <!-- ===== Скрипт ===== -->
+  <script src="script.js"></script>
+
+  <!-- ===== YouTube Player ===== -->
+  <div id="ytPlayer"></div>
+  <div class="music-button" id="musicBtnYouTube" title="Вкл/Выкл музыку">
+    <img src="https://cdn-icons-png.flaticon.com/512/109/109663.png" alt="Music Icon" />
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const musicBtn = document.getElementById('musicBtnYouTube');
+      musicBtn.addEventListener('click', () => {
+        if (!window.isPlaying) {
+          window.player.playVideo();
+          window.isPlaying = true;
+          musicBtn.style.backgroundColor = '#00FFE7';
+          musicBtn.style.boxShadow = '0 0 14px #00FFE7';
+        } else {
+          window.player.pauseVideo();
+          window.isPlaying = false;
+          musicBtn.style.backgroundColor = 'rgba(0,0,0,0.5)';
+          musicBtn.style.boxShadow = '0 0 10px #00FFE7';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
