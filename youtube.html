@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>YouTube — Моё портфолио</title>
   <link rel="stylesheet" href="styles.css" />
+  <!-- Google Fonts: Poppins -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   />
+
+  <!-- YouTube Subscribe Button (необязательно, если скрипт загружается) -->
+  <script src="https://apis.google.com/js/platform.js"></script>
 </head>
 <body>
   <!-- ===== Навигация (текущая страница YouTube) ===== -->
@@ -34,27 +38,66 @@
   <!-- ===== Страница YouTube ===== -->
   <section id="youtubePage" class="section youtube">
     <h2 class="section-title">Мой YouTube-канал</h2>
-    <div class="youtube-content" style="max-width: 800px; margin: 0 auto; text-align: center; color: #DDD;">
+    <div class="youtube-content" style="max-width: 900px; margin: 0 auto; text-align: center; color: #DDD;">
       <p>
-        На моём канале вы найдёте видео по веб-разработке, записи соревнований по триатлону, а также кадры с
-        мотопробегов и фотосессий. Подписывайтесь, чтобы не пропустить новые выпуски!
+        Добро пожаловать на мой канал! Здесь я публикую:
       </p>
+      <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
+        <li>🎥 Видеоуроки по веб-разработке</li>
+        <li>🏊‍♂️ Записи соревнований по триатлону</li>
+        <li>🏍️ Кадры с мотопробегов и обзор техники</li>
+      </ul>
 
-      <!-- Встраивание последнего видео или плейлиста (пример) -->
-      <div style="margin: 30px 0;">
-        <iframe
-          width="100%"
-          height="450"
-          src="https://youtu.be/ADIXN6jOJhA?si=twZ0ULuViKwPzi5A"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+      <!-- 1) Кнопка-подписка на канал -->
+      <div style="margin-bottom: 40px;">
+        <!-- Если платформа недоступна, просто не покажет кнопку, но страница останется работоспособной -->
+        <div class="g-ytsubscribe"
+             data-channel="@burgerdom6"
+             data-layout="default"
+             data-count="default">
+        </div>
       </div>
 
-      <p>
-        Если хотите перейти напрямую на канал, нажмите кнопку:
-      </p>
+      <!-- 2) Превью последних 4 видео (пример с заглушками):
+         Чтобы реально показывать актуальные обложки, нужно вручную заменить URL-ы изображений
+         на те, что можно взять с YouTube (их можно получить, кликнув правой кнопкой → «Копировать URL-изображения»). -->
+      <div class="video-thumbnails" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 40px;">
+        <!-- Пример карточки с обложкой и ссылкой на ролик -->
+        <div class="thumb-card" style="width: 200px;">
+          <a href="https://www.youtube.com/watch?v=ID_ПЕРВОЕ_ВИДЕО" target="_blank">
+            <img src="https://img.youtube.com/vi/ID_ПЕРВОЕ_ВИДЕО/maxresdefault.jpg"
+                 alt="Видео 1" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          </a>
+          <p style="color: #EEE; margin-top: 8px; font-size: 0.95rem;">Название первого видео</p>
+        </div>
+
+        <div class="thumb-card" style="width: 200px;">
+          <a href="https://www.youtube.com/watch?v=ID_ВТОРОЕ_ВИДЕО" target="_blank">
+            <img src="https://img.youtube.com/vi/ID_ВТОРОЕ_ВИДЕО/maxresdefault.jpg"
+                 alt="Видео 2" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          </a>
+          <p style="color: #EEE; margin-top: 8px; font-size: 0.95rem;">Название второго видео</p>
+        </div>
+
+        <div class="thumb-card" style="width: 200px;">
+          <a href="https://www.youtube.com/watch?v=ID_ТРЕТЬЕ_ВИДЕО" target="_blank">
+            <img src="https://img.youtube.com/vi/ID_ТРЕТЬЕ_ВИДЕО/maxresdefault.jpg"
+                 alt="Видео 3" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          </a>
+          <p style="color: #EEE; margin-top: 8px; font-size: 0.95rem;">Название третьего видео</p>
+        </div>
+
+        <div class="thumb-card" style="width: 200px;">
+          <a href="https://www.youtube.com/watch?v=ID_ЧЕТВЁРТОЕ_ВИДЕО" target="_blank">
+            <img src="https://img.youtube.com/vi/ID_ЧЕТВЁРТОЕ_ВИДЕО/maxresdefault.jpg"
+                 alt="Видео 4" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          </a>
+          <p style="color: #EEE; margin-top: 8px; font-size: 0.95rem;">Название четвёртого видео</p>
+        </div>
+      </div>
+
+      <!-- 3) Ссылка «Перейти на канал» -->
+      <p style="margin-bottom: 10px;">Чтобы увидеть весь плейлист, перейдите прямо на мой канал:</p>
       <a href="https://www.youtube.com/@burgerdom6/videos" target="_blank" class="btn btn-secondary">Перейти на канал →</a>
     </div>
   </section>
@@ -70,7 +113,7 @@
   <!-- ===== Скрипт ===== -->
   <script src="script.js"></script>
 
-  <!-- ===== YouTube Player ===== -->
+  <!-- ===== Музыка ===== -->
   <div id="ytPlayer"></div>
   <div class="music-button" id="musicBtnYouTube" title="Вкл/Выкл музыку">
     <img src="https://cdn-icons-png.flaticon.com/512/109/109663.png" alt="Music Icon" />
