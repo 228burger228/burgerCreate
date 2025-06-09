@@ -129,24 +129,16 @@
     </div>
   </section>
 
-  <!-- ===== Telegram Канал ===== -->
+  <!-- ===== Telegram Новости ===== -->
 <section id="telegram" class="section telegram">
-  <h2 class="section-title">Мой Telegram-канал</h2>
-  <p class="section-subtitle">Следите за новостями и обновлениями прямо отсюда:</p>
-
-  <div class="telegram-widget-container" style="max-width: 600px; margin: 0 auto; text-align: center;">
-    <div id="telegram-post-frame" style="min-height: 300px;">
-      <!-- Встраиваемый пост появляется здесь -->
-      <script
-        id="telegram-widget-script"
-        async
-        src="https://telegram.org/js/telegram-widget.js?22"
-        data-telegram-post="aimovl/1"
-        data-width="100%"
-        data-userpic="false"
-        data-dark="false">
-      </script>
-    </div>
+  <h2 class="section-title">Новости из Telegram</h2>
+  <div class="telegram-wrapper">
+    <button class="tg-btn" onclick="switchPost(-1)">← Назад</button>
+    <div id="telegram-post-frame" class="telegram-frame"></div>
+    <button class="tg-btn" onclick="switchPost(1)">Вперёд →</button>
+  </div>
+</section>
+  
 
     <div style="margin-top: 15px;">
       <button class="btn btn-secondary" onclick="prevPost()">← Назад</button>
