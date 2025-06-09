@@ -604,3 +604,34 @@ header {
 .close:hover {
   color: #f00;
 }
+
+
+/* тгк */
+.telegram-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tg-btn {
+  background-color: #0088cc;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.tg-btn:hover {
+  background-color: #006b9f;
+}
+
+.telegram-frame {
+  flex: 1 1 400px;
+  max-width: 600px;
+  min-width: 320px;
+}
