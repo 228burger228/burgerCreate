@@ -138,6 +138,16 @@
     <button class="tg-btn" onclick="switchPost(1)">Вперёд →</button>
   </div>
 </section>
+
+  
+<!-- =====  <section id="telegram" class="section telegram">
+  <h2 class="section-title">Новости из Telegram</h2>
+  <div class="telegram-wrapper">
+    <button class="tg-btn" onclick="switchPost(-1)">← Назад</button>
+    <div id="telegram-post-frame" class="telegram-frame"></div>
+    <button class="tg-btn" onclick="switchPost(1)">Вперёд →</button>
+  </div>
+</section>
   
 
     <div style="margin-top: 15px;">
@@ -149,7 +159,7 @@
       <a href="https://t.me/aimovl" class="btn btn-primary" target="_blank">Перейти в канал →</a>
     </div>
   </div>
-</section>
+</section> ===== -->
 
   <!-- ===== Футер ===== -->
   <footer class="footer">
@@ -222,68 +232,52 @@
     });
   </script>
   
-       <script>
+       
+
+<script>
   const telegramPosts = [
     "BurgerTriat/422",
     "BurgerTriat/417",
     "BurgerTriat/415"
   ];
-
   let currentIndex = 0;
-
-  function renderTelegramPost(index) {
-    const container = document.getElementById("telegram-post-frame");
-    container.innerHTML = `
-      <script async src="https://telegram.org/js/telegram-widget.js?22"
-        data-telegram-post="${telegramPosts[index]}"
-        data-width="100%"
-        data-userpic="false"
-        data-dark="false">
-      </script>
-    `;
-  }
-
-  function switchPost(direction) {
-    currentIndex = (currentIndex + direction + telegramPosts.length) % telegramPosts.length;
-    renderTelegramPost(currentIndex);
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    renderTelegramPost(currentIndex);
-  });
-</script>
-
-script>
-  const telegramPosts = [
-    "BurgerTriat/422",
-    "BurgerTriat/417",
-    "BurgerTriat/415"
-  ];
-
-  let currentIndex = 0;
+  let autoScrollInterval;
 
   function renderTelegramPost(index) {
     const container = document.getElementById("telegram-post-frame");
     container.innerHTML = "";
-
     const script = document.createElement("script");
-    script.setAttribute("async", "");
-    script.setAttribute("src", "https://telegram.org/js/telegram-widget.js?22");
+    script.async = true;
+    script.src = "https://telegram.org/js/telegram-widget.js?22";
     script.setAttribute("data-telegram-post", telegramPosts[index]);
     script.setAttribute("data-width", "100%");
     script.setAttribute("data-userpic", "true");
     script.setAttribute("data-dark", "false");
-
     container.appendChild(script);
   }
 
-  function switchPost(direction) {
+  function switchPost(direction = 1) {
     currentIndex = (currentIndex + direction + telegramPosts.length) % telegramPosts.length;
     renderTelegramPost(currentIndex);
   }
 
+  function startAutoScroll() {
+    // Сменяем пост каждые 10 секунд
+    autoScrollInterval = setInterval(() => switchPost(1), 10000);
+  }
+
+  function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     renderTelegramPost(currentIndex);
+    startAutoScroll();
+
+    // При наведении на виджет — останавливаем автопрокрутку, когда убрали — возобновляем
+    const frame = document.getElementById("telegram-post-frame");
+    frame.addEventListener("mouseenter", stopAutoScroll);
+    frame.addEventListener("mouseleave", startAutoScroll);
   });
 </script>
   
