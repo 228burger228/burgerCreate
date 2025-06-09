@@ -613,6 +613,14 @@ header {
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.telegram-frame {
+  flex: 1 1 400px;
+  max-width: 600px;
+  min-width: 320px;
+  min-height: 300px;
 }
 
 .tg-btn {
@@ -627,11 +635,6 @@ header {
 }
 
 .tg-btn:hover {
-  background-color: #006b9f;
+  background-color: #0073a6;
 }
 
-.telegram-frame {
-  flex: 1 1 400px;
-  max-width: 600px;
-  min-width: 320px;
-}
