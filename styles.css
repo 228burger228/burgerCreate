@@ -541,35 +541,29 @@ header {
 
 
 /* ===== спорт галер ===== */
-.gallery {
-  text-align: center;
-  padding: 4rem 1rem;
-  background-color: #f0faff;
-}
-
-.section-subtitle {
-  margin-top: -1rem;
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
-  color: #666;
-}
-
-.gallery-grid {
+.dark-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  padding: 0 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
 }
 
-.gallery-item img {
-  width: 100%;
-  height: auto;
+.dark-gallery .gallery-item {
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 255, 231, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-gallery .gallery-item img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
   transition: transform 0.3s ease;
 }
 
-.gallery-item img:hover {
-  transform: scale(1.05);
+.dark-gallery .gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 255, 231, 0.25);
 }
-
