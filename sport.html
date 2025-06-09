@@ -11,7 +11,7 @@
   />
 </head>
 <body>
-  <!-- ===== Навигация (текущая страница Sport) ===== -->
+  <!-- ===== Навигация ===== -->
   <header>
     <nav class="navbar">
       <div class="logo">MyPortfolio</div>
@@ -20,6 +20,7 @@
         <li><a href="genshin.html">Genshin</a></li>
         <li><a href="sport.html" class="active-link">Спорт</a></li>
         <li><a href="photo.html">Фотография</a></li>
+         <li><a href="youtube.html">Ютуб</a></li>
         <li><a href="index.html#webdev">Веб-разработка</a></li>
       </ul>
       <div class="hamburger" id="hamburgerSport">
@@ -35,19 +36,88 @@
     <h2 class="section-title">Профессиональный спорт</h2>
     <div class="cards-container">
       <div class="card">
-        <img src="images/sport1.jpg" alt="Спорт 1" />
+        <img src="images/sport1.jpg" alt="Триатлон" />
         <h3>Триатлон</h3>
-        <p>Региональный участник, многократный призёр среди любителей.</p>
+        <p> Постоянные тренировки по плаванию, вело- и беговым этапам.</p>
       </div>
+
+    
+
       <div class="card">
-        <img src="images/sport2.jpg" alt="Спорт 2" />
-        <h3>Фитнес и тренировки</h3>
-        <p>Провожу персональные и онлайн-тренировки, сертифицированный тренер.</p>
+        <img src="images/sport3.jpg" alt="Соревнования и забеги" />
+        <h3>Соревнования</h3>
+        <p>Регулярное участие в стартах. </p>
       </div>
-      <!-- Можно добавить новые карточки -->
+
+      
     </div>
   </section>
 
+<section id="sportGallery" class="section gallery">
+  <h2 class="section-title">Моя фотогалерея</h2>
+  <p class="section-subtitle">Здесь я делюсь моментами с тренировок, соревнований и жизни в «Акватиксе».</p>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="photosport7.jpg" alt="Фото с тренировки" />
+    </div>
+
+    <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="photosport4.jpg" alt="Фото акватикс /совмест" />
+    </div>
+      <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="photosport5.jpg" alt="Фото акватикс /совмест" />
+    </div>
+        <div class="gallery-item">
+      <img src="photosport16.jpg" alt="Фото акватикс /совмест" />
+    </div>
+        <div class="gallery-item">
+      <img src="photosport17.jpg" alt="Фото акватикс /совмест" />
+    </div>
+    
+    <div class="gallery-item">
+      <img src="photosport2.jpg.jpg" alt="Кубок за 2 место" />
+    </div>
+    <div class="gallery-item">
+      <img src="photosport3.jpg" alt="плюшка" />
+    </div>
+    
+    <div class="gallery-item">
+      <img src="photosport1.jpg" alt="Фотки с прогулок/прокатов" />
+    </div>
+        <div class="gallery-item">
+      <img src="photosport6.jpg" alt="Фотки с прогулок/прокатов" />
+    </div>
+        <div class="gallery-item">
+      <img src="photosport8.jpg" alt="Фотки с прогулок/прокатов" />
+    </div>
+        <div class="gallery-item">
+      <img src="photosport9.jpg" alt="Фотки с прогулок/прокатов" />
+    </div>
+        <div class="gallery-item">
+      <img src="photosport10.jpg" alt="Фотки с прогулок/прокатов" />
+    </div>
+        <div class="gallery-item">
+      <img src="photosport11.jpg" alt="Фотки с прогулок/прокатов" />
+    </div>
+        <div class="gallery-item">
+      <img src="photosport12.jpg" alt="Фотки с прогулок/прокатов" />
+    </div>
+        <div class="gallery-item">
+      <img src="photosport13.jpg" alt="Фотки с прогулок/прокатов" />
+    </div>
+        <div class="gallery-item">
+      <img src="photosport14.jpg" alt="Фотки с прогулок/прокатов" />
+    </div>
+        <div class="gallery-item">
+      <img src="photosport15.jpg" alt="Фотки с прогулок/прокатов" />
+    </div>
+    
+  </div>
+</section>
+  
   <!-- ===== Футер ===== -->
   <footer class="footer">
     <p>© 2025 Дмитрий. Все права защищены.</p>
@@ -59,13 +129,12 @@
   <!-- ===== Скрипт ===== -->
   <script src="script.js"></script>
 
-  <!-- ===== Музыка (общая для сайта) ===== -->
+  <!-- ===== Музыка ===== -->
   <div id="ytPlayer"></div>
   <div class="music-button" id="musicBtnSport" title="Вкл/Выкл музыку">
     <img src="https://cdn-icons-png.flaticon.com/512/109/109663.png" alt="Music Icon" />
   </div>
   <script>
-    // При загрузке страницы всегда проверяем, что плеер уже инициализирован
     document.addEventListener('DOMContentLoaded', () => {
       const musicBtn = document.getElementById('musicBtnSport');
       musicBtn.addEventListener('click', () => {
