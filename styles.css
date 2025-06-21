@@ -638,5 +638,15 @@ header {
   background-color: #0073a6;
 }
 
-
+/* форма */
+.contact-content input,
+.contact-content textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #444;
+  background: #222;
+  color: #EEE;
+  border-radius: 6px;
+}
 
