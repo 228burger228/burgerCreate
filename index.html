@@ -147,17 +147,24 @@
       <a href="#contact">Контакты</a>
     </nav>
 
-    <section id="about">Обратная связь</section>
-    <section id="projects">…</section>
-    <section id="contact">
-      <form name="contact" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="contact">
-        <input name="name" required placeholder="Ваше имя">
-        <input name="email" type="email" required placeholder="Email">
-        <textarea name="message" required placeholder="Сообщение"></textarea>
-        <button type="submit">Отправить</button>
-      </form>
-    </section>
+    <form name="contact" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="contact" />
+  <input type="hidden" name="subject" value="Новое сообщение с сайта" />
+
+  <label>
+    Ваше имя
+    <input type="text" name="name" required />
+  </label>
+  <label>
+    Email
+    <input type="email" name="email" required />
+  </label>
+  <label>
+    Сообщение
+    <textarea name="message" required></textarea>
+  </label>
+  <button type="submit" class="btn btn-primary">Отправить</button>
+</form>
 
     <script src="script.js"></script>
 
