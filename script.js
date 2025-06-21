@@ -149,3 +149,24 @@ document.addEventListener('click', function(e) {
   });
 })();
 
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form[name="contact"]');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const data = new URLSearchParams(new FormData(form)).toString();
+
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: data,
+      });
+      alert('Спасибо! Ваше сообщение отправлено.');
+      form.reset();
+    } catch (err) {
+      alert('Ошибка отправки. Попробуйте позже.');
+    }
+  });
+});
+
