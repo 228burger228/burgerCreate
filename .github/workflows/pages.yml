@@ -1,4 +1,4 @@
-name: 📦 Deploy static site to GitHub Pages
+name: Deploy static site to GitHub Pages послед вс
 
 on:
   push:
@@ -14,17 +14,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Upload site content
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .  # ваши файлы в корне
+          path: ./build  # Папка после сборки React (если CRA)
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages  # ⚠️ ОБЯЗАТЕЛЬНАЯ СТРОКА
     steps:
       - name: Configure Pages
         uses: actions/configure-pages@v5
