@@ -1,0 +1,35 @@
+name:  Deploy static site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # или другая ветка, в которую вы пушите
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: 📂 Prepare artifact
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Upload site content
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: .  # Все ваши файлы находятся в корне
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    name: 🚀 Deploy to GitHub Pages
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v3
+
+      - name: Deploy
+        uses: actions/deploy-pages@v1
