@@ -147,7 +147,20 @@
       <a href="#contact">Контакты</a>
     </nav>
 
-    <form name="contact" method="POST" data-netlify="true">
+ <!-- ==== Форма обратной связи ==== -->
+    <form name="contact" method="POST" data-netlify="true" class="contact-form">
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="subject" data-remove-prefix
+             value="Новое сообщение с сайта бурга" />
+
+      <input type="text" name="name" placeholder="Ваше имя" required />
+      <input type="email" name="email" placeholder="Ваш email" required />
+      <textarea name="message" placeholder="Ваше сообщение" required></textarea>
+      <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+
+  
+    <!--<form name="contact" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="contact" />
   <input type="hidden" name="subject" value="Новое сообщение с сайта" />
 
@@ -166,7 +179,7 @@
   <button type="submit" class="btn btn-primary">Отправить</button>
 </form>
 
-    <script src="script.js"></script>
+    <script src="script.js"></script>-->
 
   
 <!-- =====  <section id="telegram" class="section telegram">
