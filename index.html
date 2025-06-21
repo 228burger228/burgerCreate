@@ -139,6 +139,28 @@
   </div>
 </section>
 
+  <button data-theme-toggle aria-label="Переключить тему">🌓</button>
+
+    <nav>
+      <a href="#about">Обо мне</a>
+      <a href="#projects">Проекты</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+
+    <section id="about">Обратная связь</section>
+    <section id="projects">…</section>
+    <section id="contact">
+      <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact">
+        <input name="name" required placeholder="Ваше имя">
+        <input name="email" type="email" required placeholder="Email">
+        <textarea name="message" required placeholder="Сообщение"></textarea>
+        <button type="submit">Отправить</button>
+      </form>
+    </section>
+
+    <script src="script.js"></script>
+
   
 <!-- =====  <section id="telegram" class="section telegram">
   <h2 class="section-title">Новости из Telegram</h2>
