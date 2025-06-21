@@ -81,3 +81,71 @@ function onYouTubeIframeAPIReady() {
 const tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 document.head.appendChild(tag);
+
+// 1. Плавный скролл
+document.addEventListener('click', function(e) {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const target = document.querySelector(a.getAttribute('href'));
+  if (target) {
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth' });
+    // Для доступности: установка фокуса после скролла
+    target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
+    history.pushState(null, '', a.getAttribute('href'));
+  }
+});
+
+// 2. Dark/Light Tema Toggle
+(function() {
+  const key = 'theme';
+  const btn = document.querySelector('[data-theme-toggle]');
+  const root = document.documentElement;
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+  }
+
+  function detectSystem() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  let theme = localStorage.getItem(key) || detectSystem();
+  applyTheme(theme);
+
+  if (btn) {
+    btn.addEventListener('click', () => {
+      theme = (theme === 'dark') ? 'light' : 'dark';
+      localStorage.setItem(key, theme);
+      applyTheme(theme);
+    });
+  }
+
+  window.matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', e => {
+      if (!localStorage.getItem(key)) {
+        theme = e.matches ? 'dark' : 'light';
+        applyTheme(theme);
+      }
+    });
+})();
+
+// 3. Netlify Forms – отправка формы
+(function() {
+  const form = document.querySelector('form[name="contact"][data-netlify="true"]');
+  if (!form) return;
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => form.innerHTML = '<p>Спасибо! Форма успешно отправлена.</p>')
+    .catch(err => alert('Ошибка отправки: ' + err));
+  });
+})();
+
