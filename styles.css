@@ -16,7 +16,7 @@ body {
   line-height: 1.6;
 }
 
-body::before {
+body:before {
   content: '';
   position: fixed;
   top: 0; left: 0;
@@ -418,6 +418,28 @@ header {
   transform: translateY(-4px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
+
+
+.btn-char {
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00FFE7;
+  color: #111;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.btn-char:hover {
+  background-color: #00C7AA;
+}
+
+
+
+
+
 
 /* ===== Раздел «Контакты» ===== */
 .contact-content {
