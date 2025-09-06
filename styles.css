@@ -439,9 +439,45 @@ header {
   background: linear-gradient(135deg, #00C7AA, #00FFE7);
 }
 
+.background-photos {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Чтобы фон не мешал кликам */
+  overflow: hidden;
+  z-index: -1;
+}
 
+/* фон */
+.bg-photo {
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15; /* Полупрозрачность, чтобы не мешать контенту */
+  transform: rotate(-15deg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
 
+/* Размещаем фотографии по экрану */
+.bg-photo:nth-child(1) { top: 10%; left: 5%; transform: rotate(-10deg); }
+.bg-photo:nth-child(2) { top: 20%; left: 30%; transform: rotate(12deg); }
+.bg-photo:nth-child(3) { top: 50%; left: 15%; transform: rotate(-8deg); }
+.bg-photo:nth-child(4) { top: 70%; left: 40%; transform: rotate(15deg); }
 
+.bg-photo {
+  animation: float 20s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: rotate(-10deg) translateY(0); }
+  50% { transform: rotate(-10deg) translateY(-15px); }
+  100% { transform: rotate(-10deg) translateY(0); }
+}
 
 /* ===== Раздел «Контакты» ===== */
 .contact-content {
