@@ -422,20 +422,22 @@ header {
 
 .btn-char {
   margin-bottom: 12px;
-  padding: 6px 12px;
+  padding: 8px 16px;
   border: none;
-  border-radius: 8px;
-  background-color: #00FFE7;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #00FFE7, #00C7AA);
   color: #111;
+  font-weight: 600;
   cursor: pointer;
-  font-weight: 500;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px #00FFE7, 0 0 15px #00C7AA;
 }
 
 .btn-char:hover {
-  background-color: #00C7AA;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 12px #00FFE7, 0 0 20px #00C7AA;
+  background: linear-gradient(135deg, #00C7AA, #00FFE7);
 }
-
 
 
 
