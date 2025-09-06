@@ -18,6 +18,33 @@ function initHamburger(hamburgerId, navLinksId) {
     });
   });
 }
+// Скрипт для генш персов
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('charModal');
+  const modalName = document.getElementById('modalName');
+  const modalDesc = document.getElementById('modalDesc');
+  const closeBtn = modal.querySelector('.close');
+
+  document.querySelectorAll('.btn-char').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.char-card');
+      modalName.textContent = card.dataset.name;
+      modalDesc.textContent = card.dataset.desc;
+      modal.style.display = 'block';
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', e => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+});
+
+
+
 
 // Инициализируем для всех страниц
 document.addEventListener('DOMContentLoaded', () => {
