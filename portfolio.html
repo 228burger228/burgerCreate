@@ -8,6 +8,175 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"/>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио — AIMOVL</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== Общие ===== */
+    body {
+      overflow-x: hidden;
+      background: #050505;
+      color: #fff;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* ===== Анимация появления ===== */
+    .gallery-item {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+    .gallery-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== 3D Hover ===== */
+    .gallery-item img {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transform: perspective(800px) rotateY(0deg);
+    }
+    .gallery-item:hover img {
+      transform: perspective(800px) rotateY(8deg) scale(1.05);
+      box-shadow: 0 0 20px #00FFE7;
+    }
+
+    /* ===== Кастомный курсор ===== */
+    .custom-cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #00FFE7;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease-out;
+      z-index: 9999;
+      mix-blend-mode: difference;
+    }
+
+    /* ===== Прелоадер ===== */
+    #preloader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #0a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(0,255,231,0.3);
+      border-top-color: #00FFE7;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+
+    /* ===== CTA ===== */
+    #cta .btn { margin: 8px; }
+
+    /* ===== Фон с постерами ===== */
+    .background-photos {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      filter: blur(8px) brightness(0.4);
+    }
+    .bg-photo {
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.5;
+      transition: transform 0.3s ease-out;
+    }
+    /* ===== Адаптив ===== */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 20px;
+    border-left: 2px solid #00FFE7;
+    border-radius: 0 0 0 20px;
+  }
+  .navbar ul.open {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .hamburger span {
+    background: #00FFE7;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    border-radius: 3px;
+  }
+  .hero-content {
+    padding: 60px 20px;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+  #scrollTopBtn {
+    bottom: 15px;
+    right: 15px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+    padding: 10px 18px;
+  }
+}
+  </style>
+  
 </head>
 <body>
 
@@ -86,9 +255,15 @@
     <h2 class="section-title">Хочешь работать со мной?</h2>
     <div style="text-align:center; margin-top:20px;">
       <a href="resume.pdf" class="btn btn-primary" download>📄 Скачать резюме</a>
-      <a href="mailto:aimovl@example.com" class="btn btn-primary">📧 Написать</a>
+      <a href="derser21136" class="btn btn-primary">📧 Написать</a>
     </div>
   </section>
+
+   <!-- ===== Прелоадер ===== -->
+  <div id="preloader"><div class="loader"></div></div>
+
+  <!-- ===== Кастомный курсор ===== -->
+  <div class="custom-cursor"></div>
   
   <!-- ===== Модалка для просмотра ===== -->
   <div id="imageModal" class="modal">
@@ -99,12 +274,19 @@
 
   <!-- ===== Футер ===== -->
   <footer class="footer">
-    <p>© 2025 AIMOVL | Все права защищены</p>
+    <p>© 2025 burger | Все права защищены</p>
   </footer>
 
   <!-- Кнопка наверх -->
   <button id="scrollTopBtn">↑</button>
-
+  
+<!-- ===== Фон с постерами ===== -->
+  <div class="background-photos">
+    <div class="bg-photo" style="background-image:url('images/poster1.jpg')"></div>
+    <div class="bg-photo" style="background-image:url('images/poster2.jpg')"></div>
+    <div class="bg-photo" style="background-image:url('images/poster3.jpg')"></div>
+  </div>
+  
   <script>
     // Навигация
     const hamburger = document.getElementById('hamburger');
@@ -113,7 +295,13 @@
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('open');
     });
+    
+// Прелоадер
+    window.addEventListener('load', () => {
+      document.getElementById('preloader').style.display = 'none';
+    });
 
+    
     // Модальное окно
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImg");
@@ -144,6 +332,38 @@
     scrollTopBtn.onclick = function() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
+
+    // Анимация появления
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    function revealOnScroll() {
+      const windowHeight = window.innerHeight;
+      galleryItems.forEach(item => {
+        const itemTop = item.getBoundingClientRect().top;
+        if (itemTop < windowHeight - 100) {
+          item.classList.add('visible');
+        }
+      });
+    }
+    revealOnScroll();
+
+    // Кастомный курсор
+    const cursor = document.querySelector('.custom-cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    // Плавное появление
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    function revealOnScroll() {
+      const windowHeight = window.innerHeight;
+      galleryItems.forEach(item => {
+        const itemTop = item.getBoundingClientRect().top;
+        if (itemTop < windowHeight - 100) item.classList.add('visible');
+      });
+    }
+    revealOnScroll();
+
   </script>
 </body>
 </html>
