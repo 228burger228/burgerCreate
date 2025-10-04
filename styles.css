@@ -830,3 +830,32 @@ header {
   color: #ff0066;
   transform: scale(1.2);
 }
+/* Микроанимация для кнопок */
+.btn, .btn-primary, .btn-secondary, .tg-btn {
+  transition: all 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover, .btn-primary:hover, .btn-secondary:hover, .tg-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 255, 231, 0.4);
+}
+
+/* Микроанимация для изображений */
+.gallery-item img, .photo-card img, .moto-gallery img, .card img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img:hover, .photo-card img:hover, .moto-gallery img:hover, .card img:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 8px 20px rgba(0, 255, 231, 0.25);
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
