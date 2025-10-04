@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио — Дизайнерские работы</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Навигация ===== -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">AIMOVL</div>
+      <ul class="nav-links" id="navLinks">
+         <li><a href="index.html">Главная</a></li>
+        <li><a href="genshin.html">Genshin</a></li>
+        <li><a href="sport.html">Спорт</a></li>
+        <li><a href="photo.html">Фотография</a></li>
+        <li><a href="portfolio.html" class="active-link">Портфолио</a></li>
+        <li><a href="youtube.html" class="active-link">YouTube</a></li>
+        <li><a href="index.html#webdev">Веб-разработка</a></li>
+        <li><a href="index.html#moto">Мотоцикл хобби</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Герой ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Портфолио дизайнера</h1>
+      <p>Плакаты, постеры, графика и творческие работы в моём фирменном стиле.</p>
+      <a href="#works" class="btn btn-primary">Смотреть работы</a>
+    </div>
+  </section>
+
+  <!-- ===== Портфолио ===== -->
+  <section id="works" class="section">
+    <h2 class="section-title">Мои работы</h2>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/poster1.jpg" alt="Постер — Город в неоне">
+      </div>
+      <div class="gallery-item">
+        <img src="images/poster2.jpg" alt="Плакат — Спортивная энергия">
+      </div>
+      <div class="gallery-item">
+        <img src="images/poster3.jpg" alt="Арт — Абстрактная композиция">
+      </div>
+      <div class="gallery-item">
+        <img src="images/poster4.jpg" alt="Дизайн обложки — Музыка и стиль">
+      </div>
+      <div class="gallery-item">
+        <img src="images/poster5.jpg" alt="Афиша — Ночь города">
+      </div>
+      <div class="gallery-item">
+        <img src="images/poster6.jpg" alt="Постер — Свет и движение">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Модалка для просмотра ===== -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+    <div id="modalCaption"></div>
+  </div>
+
+  <!-- ===== Футер ===== -->
+  <footer class="footer">
+    <p>© 2025 AIMOVL | Все права защищены</p>
+  </footer>
+
+  <!-- Кнопка наверх -->
+  <button id="scrollTopBtn">↑</button>
+
+  <script>
+    // Навигация
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+
+    // Модальное окно
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const captionText = document.getElementById("modalCaption");
+    const closeBtn = document.querySelector(".close");
+
+    document.querySelectorAll(".gallery-item img").forEach(img => {
+      img.onclick = function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+      }
+    });
+
+    closeBtn.onclick = function() {
+      modal.style.display = "none";
+    };
+
+    // Кнопка "Наверх"
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollTopBtn.style.display = "block";
+      } else {
+        scrollTopBtn.style.display = "none";
+      }
+    };
+    scrollTopBtn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+  </script>
+</body>
+</html>
