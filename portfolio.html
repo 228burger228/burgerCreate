@@ -36,7 +36,7 @@
         <li><a href="youtube.html" class="active-link">YouTube</a></li>
         <li><a href="index.html#webdev">Веб-разработка</a></li>
         <li><a href="index.html#moto">Мотоцикл хобби</a></li>
-        <li><a href="#contact">Контакты</a></li>
+        <li><a href="index.html#contact">Контакты</a></li>
       </ul>
       <div class="hamburger" id="hamburger">
         <span></span><span></span><span></span>
@@ -93,58 +93,74 @@
     </div>
   </section>
   
-<!-- ===== CTA ===== -->
-  <section id="cta" class="section">
-    <h2 class="section-title">Хочешь со мной в успех?</h2>
-    <div style="text-align:center; margin-top:20px;">
-      <a href="resume.pdf" class="btn btn-primary" download>📄 Скачать резюме</a>
-      <a href="derser21136" class="btn btn-primary">📧 Написать</a>
+!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Портфолио дизайнера</h1>
+      <p>Плакаты, постеры и цифровые работы в неоновом стиле.</p>
+      <a href="#works" class="btn btn-primary">Посмотреть работы</a>
     </div>
   </section>
 
-   
+  <!-- ===== Работы ===== -->
+  <section id="works" class="section">
+    <h2 class="section-title">Мои работы</h2>
 
-  <!-- ===== Кастомный курсор ===== -->
-  <div class="custom-cursor"></div>
-  
-  <!-- ===== Модалка для просмотра ===== -->
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="poster1.png" alt="Постер — VR-дизайн"></div>
+      <div class="gallery-item"><img src="poster2.png" alt="Плакат — Спокойствие"></div>
+      <div class="gallery-item"><img src="poster3.png" alt="Постер  "></div>
+      <div class="gallery-item"><img src="poster4.png" alt="Постер "></div>
+      <div class="gallery-item"><img src="poster5.png" alt="Постер "></div>
+      <div class="gallery-item"><img src="poster6.png" alt="Постер "></div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section id="cta" class="section">
+    <h2 class="section-title">Хочешь со мной в успех?</h2>
+    <div style="text-align:center; margin-top:20px;">
+      <a href="resume.pdf сделать" class="btn btn-primary" download>📄 Скачать резюме</a>
+      <a href="index.html#contact" class="btn btn-primary">📧 Написать</a>
+    </div>
+  </section>
+
+  <!-- ===== Модальное окно для просмотра ===== -->
   <div id="imageModal" class="modal">
     <span class="close">&times;</span>
     <img class="modal-content" id="modalImg">
     <div id="modalCaption"></div>
   </div>
 
+  <!-- ===== Кастомный курсор ===== -->
+  <div class="custom-cursor"></div>
+
   <!-- ===== Футер ===== -->
   <footer class="footer">
     <p>© 2025 burger | Все права защищены</p>
   </footer>
 
-  <!-- Кнопка наверх -->
+  <!-- ===== Кнопка "Наверх" ===== -->
   <button id="scrollTopBtn">↑</button>
-  
-<!-- ===== Фон с постерами ===== -->
+
+  <!-- ===== Фоновые фото ===== -->
   <div class="background-photos">
     <div class="bg-photo" style="background-image:url('images/poster1.jpg')"></div>
     <div class="bg-photo" style="background-image:url('images/poster2.jpg')"></div>
     <div class="bg-photo" style="background-image:url('images/poster3.jpg')"></div>
   </div>
+
   
   <script>
-    // Навигация
+    // Гамбургер-меню
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('open');
     });
-    
-// Прелоадер
-    window.addEventListener('load', () => {
-      document.getElementById('preloader').style.display = 'none';
-    });
 
-    
-    // Модальное окно
+    // Модалка изображений
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImg");
     const captionText = document.getElementById("modalCaption");
@@ -155,7 +171,7 @@
         modal.style.display = "block";
         modalImg.src = this.src;
         captionText.innerHTML = this.alt;
-      }
+      };
     });
 
     closeBtn.onclick = function() {
@@ -175,7 +191,14 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    // Анимация появления
+    // Кастомный курсор
+    const cursor = document.querySelector('.custom-cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    // Анимация появления галереи при скролле
     const galleryItems = document.querySelectorAll('.gallery-item');
     function revealOnScroll() {
       const windowHeight = window.innerHeight;
@@ -186,26 +209,9 @@
         }
       });
     }
+    window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
-
-    // Кастомный курсор
-    const cursor = document.querySelector('.custom-cursor');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-
-    // Плавное появление
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    function revealOnScroll() {
-      const windowHeight = window.innerHeight;
-      galleryItems.forEach(item => {
-        const itemTop = item.getBoundingClientRect().top;
-        if (itemTop < windowHeight - 100) item.classList.add('visible');
-      });
-    }
-    revealOnScroll();
-
   </script>
+  
 </body>
 </html>
