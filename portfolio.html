@@ -57,15 +57,15 @@
     <h2 class="section-title">Мои работы</h2>
 
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="poster1.png" alt="Постер — VR-дизайн"></div>
-      <div class="gallery-item"><img src="poster5.png" alt="Плакат — Спокойствие"></div>
-      <div class="gallery-item"><img src="poster6.png" alt="Постер "></div>
-      <div class="gallery-item"><img src="poster3.png" alt="Постер "></div>
-      <div class="gallery-item"><img src="poster2.png" alt="Постер "></div>
-      <div class="gallery-item"><img src="poster4.jpg" alt="Постер "></div>
-      <div class="gallery-item"><img src="poster7.png" alt="Постер "></div>
-      <div class="gallery-item"><img src="poster8.png" alt="Постер "></div>
-      <div class="gallery-item"><img src="poster9.png" alt="Постер "></div>
+      <div class="gallery-item" class="gallery-item reveal"><img src="poster1.png" alt="Постер — VR-дизайн"></div>
+      <div class="gallery-item" class="gallery-item reveal"><img src="poster5.png" alt="Плакат — Спокойствие"></div>
+      <div class="gallery-item" class="gallery-item reveal"><img src="poster6.png" alt="Постер "></div>
+      <div class="gallery-item" class="gallery-item reveal"><img src="poster3.png" alt="Постер "></div>
+      <div class="gallery-item" class="gallery-item reveal"><img src="poster2.png" alt="Постер "></div>
+      <div class="gallery-item" class="gallery-item reveal"><img src="poster4.jpg" alt="Постер "></div>
+      <div class="gallery-item" class="gallery-item reveal"><img src="poster7.png" alt="Постер "></div>
+      <div class="gallery-item" class="gallery-item reveal"><img src="poster8.png" alt="Постер "></div>
+      <div class="gallery-item" class="gallery-item reveal"><img src="poster9.png" alt="Постер "></div>
     </div>
   </section>
 
@@ -132,7 +132,18 @@ modal.onclick = function(event) {
   }
 };
 
+function revealOnScroll() {
+  const reveals = document.querySelectorAll('.reveal');
+  const windowHeight = window.innerHeight;
 
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < windowHeight - 100) el.classList.add('visible');
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 
     
     // Модалка изображений
