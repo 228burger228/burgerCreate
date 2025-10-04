@@ -103,6 +103,8 @@
 
   
   <script>
+
+    
     // Гамбургер-меню
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
@@ -111,6 +113,26 @@
       navLinks.classList.toggle('open');
     });
 
+
+    
+// Закрытие модалки по клику на крестик
+const modal = document.getElementById("imageModal");
+const closeBtn = document.querySelector(".close");
+
+closeBtn.onclick = function() {
+  modal.style.display = "none";
+};
+
+// (опционально) — закрывать по клику вне картинки
+modal.onclick = function(event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+
+
+
+    
     // Модалка изображений
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImg");
