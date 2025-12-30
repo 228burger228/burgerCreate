@@ -20,13 +20,13 @@
 
   
 </head>
-	    <link href="https://cdn.jsdelivr.net/gh/Alaev-Co/snowflakes/dist/snow.min.css" rel="stylesheet">
+	   <!-- ===== <link href="https://cdn.jsdelivr.net/gh/Alaev-Co/snowflakes/dist/snow.min.css" rel="stylesheet">
 <body>
 	<script src="script.js"></script>
     <script src="/snowFlakes/Snow.js"></script>
     <script>
         new Snow();
-    </script>
+    </script> -->
   <!-- ===== Навигация ===== -->
   <header>
     <nav class="navbar">
@@ -159,8 +159,85 @@
     <div class="bg-photo" style="background-image:url('images/poster2.jpg')"></div>
     <div class="bg-photo" style="background-image:url('images/poster3.jpg')"></div>
   </div>
+<!-- Снежинки -->
+<div id="snowflakes-container" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999;"></div>
 
-  
+<script>
+// Конфигурация снежинок
+const snowflakesConfig = {
+    count: 60, // Количество снежинок
+    minSize: 2, // Минимальный размер
+    maxSize: 6, // Максимальный размер
+    speed: 0.5, // Скорость падения (чем больше, тем быстрее)
+    wind: 0.1, // Сила ветра
+    color: "#ffffff", // Цвет снежинок
+    opacity: 0.8, // Прозрачность
+    sway: 0.5 // Колебание из стороны в сторону
+};
+
+// Создаем снежинки
+function createSnowflakes() {
+    const container = document.getElementById('snowflakes-container');
+    
+    for (let i = 0; i < snowflakesConfig.count; i++) {
+        const snowflake = document.createElement('div');
+        const size = Math.random() * (snowflakesConfig.maxSize - snowflakesConfig.minSize) + snowflakesConfig.minSize;
+        const startX = Math.random() * 100;
+        const startY = Math.random() * -20;
+        
+        // Настройки стиля
+        snowflake.style.position = 'absolute';
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+        snowflake.style.background = snowflakesConfig.color;
+        snowflake.style.borderRadius = '50%';
+        snowflake.style.opacity = snowflakesConfig.opacity;
+        snowflake.style.left = `${startX}%`;
+        snowflake.style.top = `${startY}%`;
+        snowflake.style.boxShadow = '0 0 5px rgba(255, 255, 255, 0.5)';
+        snowflake.style.pointerEvents = 'none';
+        
+        // Анимация снежинки
+        const animation = snowflake.animate([
+            { 
+                transform: `translate(0px, 0px) rotate(0deg)`,
+                opacity: snowflakesConfig.opacity
+            },
+            { 
+                transform: `translate(${Math.sin(i) * 50}px, 100vh) rotate(360deg)`,
+                opacity: 0
+            }
+        ], {
+            duration: (Math.random() * 10000 + 10000) / snowflakesConfig.speed,
+            iterations: Infinity,
+            delay: Math.random() * -10000
+        });
+        
+        container.appendChild(snowflake);
+    }
+}
+
+// Запускаем создание снежинок при загрузке страницы
+window.addEventListener('DOMContentLoaded', createSnowflakes);
+
+// Адаптация при изменении размера окна
+window.addEventListener('resize', function() {
+    const container = document.getElementById('snowflakes-container');
+    while (container.firstChild) {
+        container.firstChild.remove();
+    }
+    createSnowflakes();
+});
+</script>
+
+<style>
+/* Дополнительные стили для снежинок */
+#snowflakes-container div {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+</style>
+  <script src="script.js"></script>
   <script>
 
     
