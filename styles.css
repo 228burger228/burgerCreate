@@ -41,6 +41,12 @@ html {
   scroll-behavior: smooth;
 }
 
+#snowflakes-container div {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+
 body {
   font-family: 'Poppins', sans-serif;
   background: #111;
