@@ -3,6 +3,38 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+
+:root {
+	--hue: 223deg;
+	--primary50: hsl(var(--hue) 90% 95%);
+	--primary950: hsl(var(--hue) 90% 5%);
+	--gray450: hsl(var(--hue) 10% 55%);
+	--trans-dur: 0.3s;
+	color-scheme: light dark;
+}
+
+body {
+	background-color: light-dark(var(--gray450), var(--primary950));
+	color: light-dark(var(--primary950), var(--primary50));
+	transition:
+		background-color var(--trans-dur),
+		color var(--trans-dur);
+}
+
+canvas {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	touch-action: none;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 html {
