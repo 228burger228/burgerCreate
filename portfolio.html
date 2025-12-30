@@ -28,6 +28,36 @@
         new Snow();
     </script> -->
   <!-- ===== Навигация ===== -->
+
+	<style>/* не стрёмный текст */
+		
+#main-content .container p {
+    background: rgba(10, 25, 47, 0.85); /* Тёмный фон с прозрачностью */
+    color: #b0b0d0; /* Мягкий светлый цвет текста */
+    line-height: 1.7;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid #0ff; /* Неоновая бирюзовая черта */
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.1);
+}
+		h1 {
+    color: #fff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; /* Неоновое свечение */
+    border-bottom: 2px solid #0ff; /* Акцентная линия */
+    padding-bottom: 10px;
+    display: inline-block;
+}
+		p {
+    color: #ccc; /* Светло-серый вместо чисто белого */
+    line-height: 1.6; /* Увеличит расстояние между строками */
+    background: rgba(0, 20, 30, 0.7); /* Темный полупрозрачный фон */
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #ff00ff; /* Неоново-розовый акцент */
+}
+			
+	</style>
   <header>
     <nav class="navbar">
       <div class="logo">Burg</div>
@@ -160,7 +190,9 @@
     <div class="bg-photo" style="background-image:url('images/poster3.jpg')"></div>
   </div>
 <!-- Снежинки -->
-<div id="snowflakes-container" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999;"></div>
+<div id="snowflakes-container" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999;">
+	
+</div>
 
 <script>
 // Конфигурация снежинок
